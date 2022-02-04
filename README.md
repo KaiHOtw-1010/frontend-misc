@@ -1,1 +1,1 @@
-# mini-Frontend-exercises
+### Frontend miscellaneous practices
