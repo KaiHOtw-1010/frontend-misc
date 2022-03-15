@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Keydown Detect</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="box">
+      <p class="text">Press any key</p>
+      <div class="content">
+        <div class="key-code"></div>
+        <div class="key-name"></div>
+        <div class="details">
+          <p class="key">Key: <span></span></p>
+          <p class="code">Code: <span></span></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const box = document.querySelector(".box");
+      document.addEventListener("keydown", (e) => {
+        let keyName = e.keyCode === 32 ? "space" : e.key;
+        box.querySelector(".key-code").textContent = e.keyCode;
+        box.querySelector(".key-name").textContent = keyName.toUpperCase();
+        box.querySelector(".key span").innerHTML = keyName;
+        box.querySelector(".code span").textContent = e.keyCode;
+        box.classList.add("active");
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>
