@@ -40,8 +40,13 @@ function init() {
   particleArray = [];
   for (let i = 0; i < 100; i++) {
     let size = Math.random() * 20;
-    let x = Math.random() * (innerWidth - size * 2);
-    let y = Math.random() * (innerHeight - size * 2);
+    // let x = Math.random() * (window.innerWidth - size * 2);
+    // let y = Math.random() * (window.innerHeight - size * 2);
+    // range of x: [size, window.innerWidth-size]
+    // range of y: [size, window.innerHeight-size]
+    let x = Math.random() * (window.innerWidth - size * 2) + size;
+    let y = Math.random() * (window.innerHeight - size * 2) + size;
+
     let directionX = Math.random() * 0.4 - 0.2;
     let directionY = Math.random() * 0.4 - 0.2;
     let color = "white";
