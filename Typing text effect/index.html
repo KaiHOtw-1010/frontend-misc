@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Typing Text Animation Effect</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <span class="text first-text">I am a</span>
+      <span style="--text-length: 2;" class="text second-text"></span>
+    </div>
+
+    <script>
+      const secondText = document.querySelector(".second-text");
+      const roles = ["Freelancer", "Blogger", "YouTuber"];
+      let roleIndex = 0;
+
+      const textLoad = () => {
+        if (roleIndex >= roles.length) roleIndex = 0;
+
+        secondText.style.setProperty("--text-length", roles[roleIndex].length);
+        secondText.innerHTML = `\u00A0${roles[roleIndex]}`;
+        roleIndex++;
+      };
+
+      textLoad();
+      setInterval(() => {
+        textLoad();
+      }, 4000);
+    </script>
+  </body>
+</html>
