@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Colorful rain effect</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script>
+      const rain = () => {
+        let amount = 150;
+        let body = document.querySelector("body");
+
+        for (let i = 0; i < amount; i++) {
+          let rainDrop = document.createElement("i");
+
+          let size = Math.random() * 5;
+          let positionX = Math.floor(Math.random() * window.innerWidth);
+          let delay = Math.random() * -20;
+          let duration = 1 + Math.random() * 5;
+
+          rainDrop.style.width = 0.2 + size + "px";
+          rainDrop.style.left = positionX + "px";
+          rainDrop.style.animationDelay = delay + "s";
+          rainDrop.style.animationDuration = duration + "s";
+
+          body.appendChild(rainDrop);
+        }
+      };
+      rain();
+
+      window.addEventListener("resize", () => {
+        let allRainDrops = document.querySelectorAll("i");
+        for (let i = 0; i < allRainDrops.length; i++) {
+          allRainDrops[i].remove();
+        }
+        rain();
+      });
+    </script>
+  </body>
+</html>
